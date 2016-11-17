@@ -81,11 +81,13 @@ public class PrintTemplet {
 			writeTo(shopName);
 
 			bluetoothService.printSize(1);
+			bluetoothService.printBold();
 			bluetoothService.printLeft();
 			writeTo(orderTime);
 
 			bluetoothService.printSize(1);
 			bluetoothService.printLeft();
+			bluetoothService.printBold();
 			writeTo(createTime());
 
 			bluetoothService.printSize(1);
@@ -104,8 +106,6 @@ public class PrintTemplet {
 		}
 
 		return true;
-
-
 	}
 
 	/**

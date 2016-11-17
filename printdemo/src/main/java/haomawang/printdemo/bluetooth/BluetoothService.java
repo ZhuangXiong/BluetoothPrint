@@ -133,6 +133,13 @@ public class BluetoothService {
 		}
 	}
 
+	public void printBold() {
+		if (getState() != BluetoothService.STATE_CONNECTED) {
+			return;
+		}
+		write(byteCommands[7]);
+	}
+
 	public void printLeft() {
 		if (getState() != BluetoothService.STATE_CONNECTED) {
 			return;

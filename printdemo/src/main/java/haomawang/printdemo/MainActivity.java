@@ -173,8 +173,8 @@ public class MainActivity extends Activity {
 
 			PrintTemplet.build(MainActivity.this)
 					.shopName("shopName")
-					.content("充值话费 50")
-					.orderTime("2015-10-12")
+					.content("_____________________")
+					.orderTime("——————————")
 					.print(mService);
 			
 			break;
@@ -191,7 +191,7 @@ public class MainActivity extends Activity {
 			}
 			Bitmap bitmap = BitmapFactory.decodeStream(bis);
 			
-        	sendMessage(bitmap);
+//        	sendMessage(bitmap);
         	
         	sendMessage(" \n");
         	sendMessage(" \n");
@@ -231,31 +231,7 @@ public class MainActivity extends Activity {
 			mService.write(send);
 		}
 	}
-	
-	
-	private void sendMessage(Bitmap bitmap) {
-		// Check that we're actually connected before trying anything
-		if (mService.getState() != BluetoothService.STATE_CONNECTED) {
-			Toast.makeText(this, "蓝牙没有连接", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		// 发送打印图片前导指令
-		byte[] start = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1B,
-				0x40, 0x1B, 0x33, 0x00 };
-		mService.write(start);
-		
-		/**获取打印图片的数据**/
-//		byte[] send = getReadBitMapBytes(bitmap);
-		
-		mService.printCenter();
-		byte[] draw2PxPoint = PicFromPrintUtils.draw2PxPoint(bitmap);
-		
-		mService.write(draw2PxPoint);
-		// 发送结束指令
-		byte[] end = { 0x1d, 0x4c, 0x1f, 0x00 };
-		mService.write(end);
-	}
-	
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
         case REQUEST_CONNECT_DEVICE:
