@@ -3,6 +3,7 @@ package haomawang.printdemo;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.LinkedHashMap;
 
 
 import android.app.Activity;
@@ -169,12 +170,18 @@ public class MainActivity extends Activity {
 	public void onClick(View v){
 		switch (v.getId()) {
 		case R.id.print_btn:
-			sendMessage(print_et.getText().toString()+"\n");
+//			sendMessage(print_et.getText().toString()+"\n");
+
+			LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+			linkedHashMap.put("充值项目","50元话费");
+			linkedHashMap.put("充值对象","153445645");
+			linkedHashMap.put("充值时间","2015/10/20");
+			linkedHashMap.put("实付金额","50元");
+			linkedHashMap.put("充值状态","已充值");
 
 			PrintTemplet.build(MainActivity.this)
-					.shopName("shopName")
-					.content("_____________________")
-					.orderTime("——————————")
+					.title("话费清单")
+					.content(linkedHashMap)
 					.print(mService);
 			
 			break;

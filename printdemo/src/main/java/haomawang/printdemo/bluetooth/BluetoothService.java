@@ -75,7 +75,7 @@ public class BluetoothService {
 			{ 0x1b, 0x4d, 0x00 },// 标准ASCII字体
 			{ 0x1b, 0x4d, 0x01 },// 压缩ASCII字体
 			{ 0x1d, 0x21, 0x00 },// 字体不放大
-			{ 0x1d, 0x21, 0x02 },// 宽高加倍
+			{ 0x1d, 0x21, 0x09 },// 宽高加倍
 			{ 0x1d, 0x21, 0x11 },// 宽高加倍
 			// { 0x1d, 0x21, 0x11 },// 宽高加倍
 			{ 0x1b, 0x45, 0x00 },// 取消加粗模式
@@ -559,6 +559,7 @@ public class BluetoothService {
 			mmOutStream = tmpOut;
 		}
 
+
 		public void run() {
 			Log.i(TAG, "BEGIN mConnectedThread");
 			int bytes;
@@ -601,9 +602,8 @@ public class BluetoothService {
 
 		/**
 		 * Write to the connected OutStream.
-		 *
 		 * @param buffer
-		 *            The bytes to write
+		 * The bytes to write
 		 */
 		public void write(byte[] buffer) {
 			try {
