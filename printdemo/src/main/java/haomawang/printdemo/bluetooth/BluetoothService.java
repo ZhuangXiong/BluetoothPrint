@@ -192,7 +192,6 @@ public class BluetoothService {
 
 	/**
 	 * Set the current state of the connection
-	 *
 	 * @param state
 	 *            An integer defining the current connection state
 	 */
