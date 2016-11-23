@@ -15,11 +15,6 @@ package com.haomawang.bluetoothprint.bluetooth;/*
  */
 
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.UUID;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
@@ -29,6 +24,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.UUID;
 
 /**
  * This class does all the work for setting up and managing Bluetooth
@@ -75,7 +75,7 @@ public class BluetoothService {
 			{ 0x1b, 0x4d, 0x00 },// 标准ASCII字体
 			{ 0x1b, 0x4d, 0x01 },// 压缩ASCII字体
 			{ 0x1d, 0x21, 0x00 },// 字体不放大
-			{ 0x1d, 0x21, 0x02 },// 宽高加倍
+			{ 0x1d, 0x21, 0x09 },// 宽高加倍
 			{ 0x1d, 0x21, 0x11 },// 宽高加倍
 			// { 0x1d, 0x21, 0x11 },// 宽高加倍
 			{ 0x1b, 0x45, 0x00 },// 取消加粗模式
@@ -133,6 +133,13 @@ public class BluetoothService {
 		}
 	}
 
+	public void printBold() {
+		if (getState() != BluetoothService.STATE_CONNECTED) {
+			return;
+		}
+		write(byteCommands[7]);
+	}
+
 	public void printLeft() {
 		if (getState() != BluetoothService.STATE_CONNECTED) {
 			return;
@@ -178,6 +185,11 @@ public class BluetoothService {
 		mHandler = handler;
 	}
 
+	public BluetoothAdapter getmAdapter(){
+
+		return mAdapter;
+	}
+
 	public Context getContext() {
 
 		return context;
@@ -185,7 +197,6 @@ public class BluetoothService {
 
 	/**
 	 * Set the current state of the connection
-	 *
 	 * @param state
 	 *            An integer defining the current connection state
 	 */
@@ -552,6 +563,7 @@ public class BluetoothService {
 			mmOutStream = tmpOut;
 		}
 
+
 		public void run() {
 			Log.i(TAG, "BEGIN mConnectedThread");
 			int bytes;
@@ -594,9 +606,8 @@ public class BluetoothService {
 
 		/**
 		 * Write to the connected OutStream.
-		 *
 		 * @param buffer
-		 *            The bytes to write
+		 * The bytes to write
 		 */
 		public void write(byte[] buffer) {
 			try {

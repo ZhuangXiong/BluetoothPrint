@@ -202,64 +202,8 @@ public class PrintTemplet {
 	}
 
 
-	BluetoothAdapter bluetoothAdapter;
-	//判断蓝牙是否打开，未连接则选择打开
-	public boolean bluetoothIsEnable(Activity activity) {
 
-		if (bluetoothAdapter == null) {
-			bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-			return false;
-		}
 
-		if (!bluetoothAdapter.isEnabled()) {
-			// 打开蓝牙
-			Intent enableIntent = new Intent(
-					BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			activity.startActivityForResult(enableIntent, BluetoothState.REQUEST_ENABLE_BT);
-			return false;
-		}
-		return true;
-	}
 
-	BroadcastReceiver broadcastReceiver;
-	/**
-	 * 扫描设备
-	 * @param broadcastReceiver 广播接收扫描情况
-     */
-	public void scannerDevice(BroadcastReceiver broadcastReceiver){
-		this.broadcastReceiver = broadcastReceiver;
 
-		if(bluetoothAdapter == null){
-			return;
-		}
-		if (bluetoothAdapter.isDiscovering()) {
-			bluetoothAdapter.cancelDiscovery();
-		}
-		IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-		mActivity.registerReceiver(broadcastReceiver,filter);
-
-		 filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-		mActivity.registerReceiver(broadcastReceiver,filter);
-
-		bluetoothAdapter.startDiscovery();
-	}
-
-	/**
-	 * 连接打印设备
-	 */
-	public void connectDevice(BluetoothDevice bluetoothDevice){
-		bluetoothService.connect(bluetoothDevice);
-	}
-
-	/**
-	 * 注销蓝牙扫描
-	 */
-	public void cancelDiscovery(){
-		if(bluetoothAdapter != null){
-			bluetoothAdapter.cancelDiscovery();
-		}
-		if(broadcastReceiver == null) {
-			mActivity.unregisterReceiver(broadcastReceiver);
-		}
-	}
 }

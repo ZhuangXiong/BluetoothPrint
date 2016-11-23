@@ -185,6 +185,11 @@ public class BluetoothService {
 		mHandler = handler;
 	}
 
+	public BluetoothAdapter getmAdapter(){
+
+		return mAdapter;
+	}
+
 	public Context getContext() {
 
 		return context;

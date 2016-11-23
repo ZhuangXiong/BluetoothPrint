@@ -10,7 +10,8 @@ import android.content.IntentFilter;
  * 创建时间：2016/11/17
  */
 
-interface  IBluetoothConnect {
+public interface BluetoothListener {
 
+    public void setOnBluetoothListener(int state);
 
 }

@@ -325,5 +325,7 @@ public class MainActivity extends Activity {
             }
         }
     };
+
+
 	private Button print_connect_btn;
 }
