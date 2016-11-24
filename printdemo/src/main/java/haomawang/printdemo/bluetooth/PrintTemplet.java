@@ -201,9 +201,4 @@ public class PrintTemplet {
 
 	}
 
-
-
-
-
-
 }

@@ -1,18 +1,20 @@
 package com.haomawang.bluetoothprint.bluetooth;
 
 public class BluetoothState {
-
+	/**蓝牙状态改变**/
 	public static final int MESSAGE_STATE_CHANGE = 1;
+	/**读**/
 	public static final int MESSAGE_READ = 2;
+	/**写**/
 	public static final int MESSAGE_WRITE = 3;
+	/**得到设备名称状态**/
 	public static final int MESSAGE_DEVICE_NAME = 4;
+	/**设备消息**/
 	public static final int MESSAGE_TOAST = 5;
-
+	/**设备名**/
 	public static final String DEVICE_NAME = "device_name";
-	public static final String TOAST = "toast";
 
-	public static final int REQUEST_CONNECT_DEVICE = 1;
-	public static final int REQUEST_ENABLE_BT = 2;
+	public static final String TOAST = "toast";
 
 	/**设备不支持蓝牙**/
 	public static final int PRINT_BLUETOOTH_NONSUPPORT = 0x10;

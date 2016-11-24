@@ -48,9 +48,6 @@ public class PrintTemplet {
 
 	}
 
-
-	static Activity mActivity = null;
-
 	public PrintTemplet title(String title) {
 		this.title = title;
 		return this;
@@ -63,8 +60,7 @@ public class PrintTemplet {
 
 
 
-	public static PrintTemplet build(Activity activity) {
-		mActivity = activity;
+	public static PrintTemplet build() {
 		printContens =  new LinkedHashMap<>();;
 		return new PrintTemplet();
 	}
