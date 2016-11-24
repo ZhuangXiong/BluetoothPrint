@@ -74,7 +74,7 @@ BluetoothPrintUtil.print(linkedHashMap,"话费清单", new BluetoothListener() {
 
 ## 打印效果图
 
-![打印效果](http://7xpu0p.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720161124172527.png)
+![打印效果](http://7xpu0p.com1.z0.glb.clouddn.com/bluetoothprint.png)
 
 ## 类描述
 
