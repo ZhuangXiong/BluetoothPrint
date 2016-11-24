@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 打印模板类
+ */
 public class PrintTemplet {
 	/**
 	 * 打印纸一行最大的字节
@@ -164,9 +167,6 @@ public class PrintTemplet {
 		}
 	}
 
-
-
-
 	/**
 	 * 订单创建时间
 	 * @return
@@ -189,10 +189,5 @@ public class PrintTemplet {
 		bluetoothService.write((printContent+newLinew).getBytes("GB2312"));
 
 	}
-
-
-
-
-
 
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 import static com.haomawang.bluetoothprint.bluetooth.BluetoothState.DEVICE_NAME;
 
 /**
- * 类描述：
+ * 类描述：打印工具类
  * 创建人：Xemenes
  * 创建时间：2016/11/21
  */
@@ -27,7 +27,6 @@ public class BluetoothPrintUtil {
     static String printDeviceAddress ;
     static Set<BluetoothDevice> devices;
     static String mTitle = "";
-
 
     public static void print(LinkedHashMap<String, String> content,String title, BluetoothListener bluetoothListener) {
         mTitle = title;
@@ -122,7 +121,7 @@ public class BluetoothPrintUtil {
     }
 
     /**
-     * 获得已配对的绑定设备号
+     * 获得已配对的绑定设备
      * @return
      */
     public static Set<BluetoothDevice> getDevices(){

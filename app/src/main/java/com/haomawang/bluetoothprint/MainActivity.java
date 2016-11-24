@@ -9,8 +9,11 @@ import android.widget.TextView;
 
 import com.haomawang.bluetoothprint.bluetooth.BluetoothListener;
 import com.haomawang.bluetoothprint.bluetooth.BluetoothPrintUtil;
+import com.haomawang.bluetoothprint.bluetooth.BluetoothState;
 
 import java.util.LinkedHashMap;
+
+
 
 
 public class MainActivity extends Activity  {
@@ -42,11 +45,43 @@ public class MainActivity extends Activity  {
             @Override
             public void setOnBluetoothListener(int state) {
                 switch (state){
+
+                    /**设备不支持蓝牙**/
+                    case BluetoothState.PRINT_BLUETOOTH_NONSUPPORT:
+
+                        break;
+
+                    /**无法连接设备，检查设备是否打开**/
+                    case BluetoothState.PRINT_BLUETOOTH_CANNOT_CONNECTED:
+                        break;
+
+                    /**蓝牙关闭**/
+                    case BluetoothState.PRINT_BLUETOOTH_CLOSE:
+                        break;
+
+                    /**无配对设备**/
+                    case BluetoothState.PRINT_BLUETOOTH_UNBIND:
+
+                        break;
+
+                    /**正在连接**/
+                    case BluetoothState.PRINT_BLUETOOTH_CONNECTING:
+
+                        break;
+
+                    /**无连接**/
+                    case BluetoothState.PRINT_BLUETOOTH_CONNECTNONE:
+
+                        break;
+
+                    /**已连接**/
+                    case BluetoothState.PRINT_BLUETOOTH_CONNECTED:
+
+                        break;
+
                 }
             }
         });
     }
-
-
 
 }
