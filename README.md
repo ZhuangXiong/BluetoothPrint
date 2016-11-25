@@ -4,7 +4,15 @@
 
 ## 使用方法
 
-### 在Application的onCreate()方法里注册蓝牙打印
+### 1.在AndroidManifest添加权限
+```
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
+
+### 2.在Application的onCreate()方法里注册蓝牙打印
 ```
 public class MyApplication extends Application {
 
@@ -15,7 +23,7 @@ public class MyApplication extends Application {
     }
 }
 ```
-### 调用打印
+### 3.调用打印
 
 ```
 //这块是打印的中间内容
@@ -70,7 +78,7 @@ BluetoothPrintUtil.print(linkedHashMap,"话费清单", new BluetoothListener() {
 });
 ```
 
-## 打印效果图
+### 4.打印效果图
 
 ![打印效果](http://7xpu0p.com1.z0.glb.clouddn.com/bluetoothprint.png)
 
