@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-import com.haomawang.bluetoothprint.bluetooth.BluetoothListener;
-import com.haomawang.bluetoothprint.bluetooth.BluetoothPrintUtil;
-import com.haomawang.bluetoothprint.bluetooth.BluetoothState;
-
 import java.util.LinkedHashMap;
 
-
+import haomawang.bluetoothlib.BluetoothListener;
+import haomawang.bluetoothlib.BluetoothPrintUtil;
+import haomawang.bluetoothlib.BluetoothState;
 
 
 public class MainActivity extends Activity  {

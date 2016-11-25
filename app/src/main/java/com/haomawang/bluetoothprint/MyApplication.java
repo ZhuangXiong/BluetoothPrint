@@ -2,7 +2,8 @@ package com.haomawang.bluetoothprint;
 
 import android.app.Application;
 
-import com.haomawang.bluetoothprint.bluetooth.BluetoothPrintUtil;
+import haomawang.bluetoothlib.BluetoothPrintUtil;
+
 
 /**
  * 类描述：
@@ -17,4 +18,5 @@ public class MyApplication extends Application {
         super.onCreate();
         BluetoothPrintUtil.registerBluetoothPrint(this);
     }
+
 }
